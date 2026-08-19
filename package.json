@@ -1,0 +1,28 @@
+{
+  "name": "theratalk",
+  "version": "1.0.0",
+  "description": "A web application designed for Aphasia to help them practice speaking anytime, anywhere. \r <!-- This project reached the semifinal round in the Healthcare track of the 27th National Software Contest (NSC) in 2025. -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nuannim/theratalk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/nuannim/theratalk/issues"
+  },
+  "homepage": "https://github.com/nuannim/theratalk#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "sqlite3": "^6.0.1"
+  }
+}

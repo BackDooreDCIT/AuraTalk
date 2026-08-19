@@ -44,14 +44,14 @@ def check_patient_role(request: Request):
 #^ เก็บไว้ดูเป็นตัวอย่าง
 # @router.get("/")
 # async def showHome(request: Request):
-#     return templates.TemplateResponse("home_patient.html", {
+#     return templates.TemplateResponse(request=request, name="home_patient.html", context={
 #         "request": request
 #     })
 
 #* 2
 # @router.get("/")
 # async def showHome(request: Request, _: None = Depends(check_patient_role)):
-#     return templates.TemplateResponse("home_patient.html", {
+#     return templates.TemplateResponse(request=request, name="home_patient.html", context={
 #         "request": request
 #     })
 
@@ -89,7 +89,7 @@ async def showHome(request: Request, resp=Depends(check_patient_role)):
         print(f"🙏🙏🙏 Assignments description: {assignments_description} 🙏🙏🙏")
 
 
-    return templates.TemplateResponse("home_patient.html", {
+    return templates.TemplateResponse(request=request, name="home_patient.html", context={
         "request": request,
         "assignments": assignments,
         "assignments_description": assignments_description,
@@ -111,7 +111,7 @@ async def showMission(request: Request, resp=Depends(check_patient_role)):
     response = supabase.table("mission").select("*").eq("patientid", userId).execute()
     missions = response.data[0]["data"] if response.data else []
 
-    return templates.TemplateResponse("mission.html", {
+    return templates.TemplateResponse(request=request, name="mission.html", context={
         "request": request,
         "patient": patient,
         "missions": missions
@@ -164,7 +164,7 @@ async def showProfile(request: Request, resp=Depends(check_patient_role)):
         lesson_names = list(avg_by_name.keys())
         avg_scores = list(avg_by_name.values())
 
-        return templates.TemplateResponse("profile_patient.html", {
+        return templates.TemplateResponse(request=request, name="profile_patient.html", context={
             "request": request,
             "user_data": history,
             "chart_labels": lesson_names,
@@ -209,7 +209,7 @@ async def showLession(assignment_id: int, request: Request, resp=Depends(check_p
     print(lessons)
 
     # ✅ Create response from TemplateResponse
-    response = templates.TemplateResponse("each_lesson.html", {
+    response = templates.TemplateResponse(request=request, name="each_lesson.html", context={
         "request": request,
         "lessons": lessons
     })
@@ -252,7 +252,7 @@ async def showActivity(
     print("tc_contents : ", tc_contents)
     print("story_data : ", story_data)
 
-    return templates.TemplateResponse(file_list[activity_id], {
+    return templates.TemplateResponse(request=request, name=file_list[activity_id], context={
         "request": request,
         "story_data": story_data,
         "tc_contents": tc_contents,
@@ -353,4 +353,4 @@ async def finish_task(data: FinishRequest, request: Request):
 
 @router.get("/timer/")
 async def timer(request: Request):
-    return templates.TemplateResponse("timer.html", {"request": request})
+    return templates.TemplateResponse(request=request, name="timer.html", context={"request": request})

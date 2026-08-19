@@ -35,7 +35,7 @@ def check_slp_role(request: Request):
 # async def showHome(request: Request):
 #     response = supabase.table("activities").select("*").execute()
 #     lessons = response.data
-#     return templates.TemplateResponse("home_p.html", {
+#     return templates.TemplateResponse(request=request, name="home_p.html", context={
 #         "request": request,
 #         "lessons": lessons
 #     })
@@ -73,7 +73,7 @@ async def showHome(request: Request, resp=Depends(check_slp_role)):
         new_slp_home = supabase.table("patients").select("*").eq("slpid", user_id).execute()
         # print("feafeawfeawfewafewfefewfewfewfew:", new_slp_home)
 
-    return templates.TemplateResponse("home_p.html", {
+    return templates.TemplateResponse(request=request, name="home_p.html", context={
         "request": request,
         # "lessons": lessons,
         "data": new_slp_home.data
@@ -86,7 +86,7 @@ async def showProgress(request: Request, resp=Depends(check_slp_role)):
         return resp
     
 
-    return templates.TemplateResponse("progress_p.html", {
+    return templates.TemplateResponse(request=request, name="progress_p.html", context={
         "request": request
     })
 
@@ -106,7 +106,7 @@ async def showProfile(request: Request, resp=Depends(check_slp_role)):
             new_slp_home = supabase.table("patients").select("*").eq("slpid", user_id).execute()
             # print("feafeawfeawfewafewfefewfewfewfew:", new_slp_home)
 
-    return templates.TemplateResponse("profile_p.html", {
+    return templates.TemplateResponse(request=request, name="profile_p.html", context={
         "request": request,
         "data": new_slp_home.data,
         "slp_data": slp_data
@@ -118,7 +118,7 @@ async def showProfile(request: Request, resp=Depends(check_slp_role)):
 #     if isinstance(resp, RedirectResponse):
 #         return resp
 
-#     return templates.TemplateResponse("lession_p.html", {
+#     return templates.TemplateResponse(request=request, name="lession_p.html", context={
 #         "request": request
 #     })
 
@@ -133,7 +133,7 @@ async def showMyPatient(request: Request, resp=Depends(check_slp_role)):
 
     # print(f"afefpekfewkofekopawfkeoawfe data: {data}")
 
-    return templates.TemplateResponse("assign_p.html", {
+    return templates.TemplateResponse(request=request, name="assign_p.html", context={
         "request": request,
         "data": data
     })
@@ -152,7 +152,7 @@ async def showCheck(request: Request, resp=Depends(check_slp_role)):
     data_assignments = response_assignments.data
     # print('iofeoijaifoeajf DATA_ASSIGNMENTS:', data_assignments)
 
-    return templates.TemplateResponse("checkday_p.html", {
+    return templates.TemplateResponse(request=request, name="checkday_p.html", context={
         "request": request,
         "data": data,
         'data_assignments': data_assignments
@@ -174,7 +174,7 @@ async def showCheckMyPatient(request: Request, resp=Depends(check_slp_role)):
     # print('oijfewaiojfejiefa data assignments_with_eachdays2:', data_assignmenteachday)
     # print('fjeaiofeaji data:', data)
 
-    return templates.TemplateResponse("check_p.html", {
+    return templates.TemplateResponse(request=request, name="check_p.html", context={
         "request": request,
         "data": data,
         "date": date,
@@ -202,7 +202,7 @@ async def showCheckMyPatient_ahid(request: Request, resp=Depends(check_slp_role)
     data_name = response_name.data
     print('data_name:', data_name)
 
-    return templates.TemplateResponse("checkdescription_p.html", {
+    return templates.TemplateResponse(request=request, name="checkdescription_p.html", context={
         "request": request,
         "data": data,
         "data_assignmenteachday": data_assignmenteachday,
@@ -224,7 +224,7 @@ async def showResetPassword(request: Request, resp=Depends(check_slp_role)):
     if isinstance(resp, RedirectResponse):
         return resp
     
-    return templates.TemplateResponse("resetpassword_p.html", {
+    return templates.TemplateResponse(request=request, name="resetpassword_p.html", context={
         "request": request
     })
 
@@ -258,7 +258,7 @@ async def showAddNewPatient(
     if isinstance(resp, RedirectResponse):
         return resp
     
-    return templates.TemplateResponse("addnewpatient_p.html", {
+    return templates.TemplateResponse(request=request, name="addnewpatient_p.html", context={
         "request": request
     })
 
@@ -281,7 +281,7 @@ async def addNewPatient(
     if existing_user.data:
         print(f'😭😭😭 @router.post("/addnewpatient")')
         print('ไม่เข้าเว้ย')
-        return templates.TemplateResponse("addnewpatient_p.html", {
+        return templates.TemplateResponse(request=request, name="addnewpatient_p.html", context={
             "request": request,
             "error": "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว กรุณาใช้ชื่ออื่น"
         })

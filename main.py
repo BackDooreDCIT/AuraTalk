@@ -38,16 +38,12 @@ SPEAKER = "farah"
 
 @app.get("/")
 async def root(request: Request):
-    return templates.TemplateResponse("disclaimer.html", {
-        "request": request
-    })
+    return templates.TemplateResponse(request=request, name="disclaimer.html")
 
 # ^ from noeysod
 @app.get("/login", response_class=HTMLResponse)
 async def login_form(request: Request):
-    return templates.TemplateResponse("testlogin.html", {
-        "request": request
-        })
+    return templates.TemplateResponse(request=request, name="testlogin.html")
 
 # ^ from noeysod
 @app.post("/login")
@@ -98,8 +94,7 @@ async def login(
 
     # return PlainTextResponse("noooo try again", status_code=401)
 
-    return templates.TemplateResponse("testlogin.html", {
-        "request": request,
+    return templates.TemplateResponse(request=request, name="testlogin.html", context={
         "error": "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
     })
 
@@ -114,9 +109,7 @@ async def logout(request: Request):
 
 @app.get("/signup")
 async def showSignUp(request: Request):
-    return templates.TemplateResponse("signup.html", {
-        "request": request
-    })
+    return templates.TemplateResponse(request=request, name="signup.html")
 
 @app.post("/signup")
 async def create_user(
@@ -134,8 +127,7 @@ async def create_user(
     if existing_user.data:
         print(f'😭😭😭 @router.post("/signup")')
         print('ไม่เข้าเว้ย')
-        return templates.TemplateResponse("signup.html", {
-            "request": request,
+        return templates.TemplateResponse(request=request, name="signup.html", context={
             "error": "ชื่อผู้ใช้นี้ถูกใช้ไปแล้ว กรุณาใช้ชื่ออื่น"
         })
 
