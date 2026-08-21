@@ -2,16 +2,16 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #7293df;
+  color: var(--primary);
   font-weight: 550;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  /* background: linear-gradient(135deg, #f7f9fe 0%, #e8f2ff 100%); */
+  /* background: linear-gradient(135deg, var(--primary-tint) 0%, #e8f2ff 100%); */
 }
 #progress {
-  color: #7293df;
+  color: var(--primary);
 }
 
 .main {
@@ -43,7 +43,7 @@ table {
   border-radius: 1em;
   overflow: hidden;
   width: 100%;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
 }
 th {
   padding: 5px;
@@ -53,21 +53,21 @@ th {
 td {
   font-size: 15px;
   padding: 5px;
-  border-top: 1.5px solid #ececec;
+  border-top: 1.5px solid var(--border);
   font-weight: 400;
-  color: #666666;
+  color: var(--text);
 }
 thead {
-  background-color: #7293df;
+  background-color: var(--primary);
   height: 40px;
 }
 i {
-  color: #bec9d5;
+  color: var(--muted);
   transition: ease-in-out 0.2s;
   cursor: pointer;
 }
 i:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 .nav {
   width: 100%;
@@ -76,7 +76,7 @@ i:hover {
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 5px #0000001a;
-  background-color: #7293df;
+  background-color: var(--primary);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -94,7 +94,7 @@ i:hover {
 }
 
 .txt p {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .mid a {
@@ -103,14 +103,14 @@ i:hover {
 }
 
 .mid a:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 #home {
   color: #ffffff;
 }
 #home:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .logo {
@@ -142,24 +142,17 @@ h4 {
   margin: 0;
 }
 
-.las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
 .txt p {
   font-weight: 400;
   font-size: 13px;
 }
 i {
   transition: ease-in-out 0.2s;
-  color: #bec9d5;
+  color: var(--muted);
   cursor: pointer;
 }
 i:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 
 @media screen and (max-width: 630px) {

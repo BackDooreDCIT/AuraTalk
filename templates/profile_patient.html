@@ -7,6 +7,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/theme.css">
     <link rel="stylesheet" href="/static/css/profile_patient.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -17,7 +18,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <h4>TheraTalk</h4>
+            <h4>AuraTalk</h4>
         </div>
         <div class="mid">
             <a href="/patient/" id="home">หน้าหลัก</a>
@@ -26,7 +27,9 @@
         </div>
         <div class="las">
             <a href="/patient/profile/">
-                <i class="fa-solid fa-user"></i>
+                <div class="at-avatar at-avatar-sm">
+                    <i class="fa-solid fa-user"></i>
+                </div>
             </a>
             <a href="/logout">
                 <i class="fa-solid fa-arrow-right-from-bracket" id="out"></i>
@@ -35,8 +38,8 @@
     </div>
     <div class="main">
         <div class="pro">
-            <div class="image">
-                <img src="/static/img/audio-book_10089822.png" alt="">
+            <div class="at-avatar at-avatar-lg">
+                <i class="fa-solid fa-user"></i>
             </div>
             <div class="namenuser">
                 {% if user_data and user_data|length > 0 %}
@@ -47,42 +50,38 @@
                 {% endif %}
             </div>
         </div>
+
+        <h2>สถิติ</h2>
+        <div class="achievement">
+            <div class="at-stat-tile">
+                <span class="at-stat-value">{{ user_data | length if user_data else 0 }}</span>
+                <span class="at-stat-label">แบบฝึกหัดที่ทำสำเร็จ</span>
+            </div>
+            <div class="at-stat-tile">
+                <span class="at-stat-value">{% if chart_data %}{{ (chart_data | sum / chart_data | length) | round(0) | int }}%{% else %}0%{% endif %}</span>
+                <span class="at-stat-label">ความถูกต้องเฉลี่ย</span>
+            </div>
+        </div>
+
         <div class="content">
             <div class="graph-box">
-                <h2>สถิติ</h2>
+                <h2>ผลแต่ละแบบฝึกหัด</h2>
                 <div class="graph">
                     <canvas id="lessonChart"></canvas>
                 </div>
             </div>
-            <div class="achi-box">
-                <h2>ความสำเร็จ</h2>
-                <div class="achievement">
-                    <div class="achi">
-                        <p>สะสมคะแนนได้</p>
-                        <h3>250</h3>
-                    </div>
-                    <div class="achi">
-                        <p>ความถูกต้องเฉลี่ย</p>
-                        <h3>95%</h3>
-                    </div>
-                    <div class="achi">
-                        <p>ความถูกต้องเฉลี่ย</p>
-                        <h3>95%</h3>
-                    </div>
-                    <div class="achi">
-                        <p>ความถูกต้องเฉลี่ย</p>
-                        <h3>95%</h3>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+
+    <div class="at-bottom-nav">
+        <a href="/patient/mission"><i class="fa-solid fa-rocket"></i>ภารกิจ</a>
+        <a href="/patient/"><i class="fa-solid fa-house"></i>หน้าหลัก</a>
+        <a href="/patient/profile" class="at-active"><i class="fa-solid fa-user"></i>โปรไฟล์</a>
+    </div>
+
 <script>
     const labels = {{ chart_labels | tojson }};
     const data = {{ chart_data | tojson }};
-
-    console.log(labels);
-    console.log(data);
 
     const ctx = document.getElementById('lessonChart').getContext('2d');
     new Chart(ctx, {
@@ -92,9 +91,10 @@
             datasets: [{
                 label: 'ค่าเฉลี่ยความถูกต้องต่อแบบฝึก (%)',
                 data: data,
-                backgroundColor: 'rgba(75, 192, 192, 0.6)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+                backgroundColor: 'rgba(108, 123, 255, 0.6)',
+                borderColor: 'rgba(108, 123, 255, 1)',
+                borderWidth: 1,
+                borderRadius: 6
             }]
         },
         options: {
@@ -102,8 +102,17 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 100
+                    max: 100,
+                    ticks: { color: '#8b93b8' },
+                    grid: { color: '#2a2f4a' }
+                },
+                x: {
+                    ticks: { color: '#8b93b8' },
+                    grid: { color: '#2a2f4a' }
                 }
+            },
+            plugins: {
+                legend: { labels: { color: '#c7cce0' } }
             }
         }
     });

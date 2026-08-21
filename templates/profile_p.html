@@ -7,6 +7,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/theme.css">
     <link rel="stylesheet" href="/static/css/profile_p.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -16,7 +17,7 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <h4>TheraTalk</h4>
+            <h4>AuraTalk</h4>
         </div>
         <div class="mid">
             <a href="/slp/" id="home">หน้าหลัก</a>
@@ -25,47 +26,31 @@
         <div class="las">
             <!-- <div class="txt"> -->
                 <a href="/slp/profile/">
-                    <i class="fa-solid fa-user"></i>
+                    <div class="at-avatar at-avatar-sm">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                 </a>
                 <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket" id="out"></i></a>
             <!-- </div> -->
-            <!-- <img src="/static/img/audio-book_10089822.png" alt=""> -->
         </div>
     </div>
     <div class="main">
         <div class="pro">
-            <div class="image">
-                <img src="/static/img/audio-book_10089822.png" alt="">
+            <div class="at-avatar at-avatar-lg">
+                <i class="fa-solid fa-user"></i>
             </div>
             <div class="namenuser">
                 <h3>{{slp_data.slpfirstname }} {{slp_data.slplastname }}</h3>
                 <p>{{slp_data.slpusername }}</p>
             </div>
         </div>
-        <h2>ผู้ป่วยที่รับการบำบัด</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ชื่อ</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if data %}
-                    {% for patient in data %}
-                    <tr>
-                        <td>{{ patient.pfirstname }} {{ patient.plastname }}</td>
-                    </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td>ไม่มีผู้รับการบำบัด</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                {% endif %}
+        <h2>ผู้ป่วยที่รับการบำบัดทั้งหมด</h2>
+        <p class="patient-count">{{ data|length if data else 0 }} คน</p>
+    </div>
 
-            </tbody>
-        </table>
+    <div class="at-bottom-nav">
+        <a href="/slp/"><i class="fa-solid fa-house"></i>หน้าหลัก</a>
+        <a href="/slp/profile" class="at-active"><i class="fa-solid fa-user"></i>โปรไฟล์</a>
     </div>
 </body>
 

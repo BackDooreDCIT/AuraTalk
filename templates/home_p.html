@@ -7,6 +7,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/theme.css">
     <link rel="stylesheet" href="/static/css/home_p.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -16,62 +17,29 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <h4>TheraTalk</h4>
+            <h4>AuraTalk</h4>
         </div>
         <div class="mid">
-            <a href="/slp/" id="home">หน้าหลัก</a>
-            <!-- <a href="/slp/progress" id="progress">พัฒนาการของผู้ป่วย</a> -->
+            <a href="/slp/" id="home" class="at-active">หน้าหลัก</a>
         </div>
         <div class="las">
-            <a href="/slp/profile">
-
-                <i class="fa-solid fa-user"></i>
+            <a href="/slp/profile" title="โปรไฟล์ของฉัน">
+                <div class="at-avatar at-avatar-sm">
+                    <i class="fa-solid fa-user"></i>
+                </div>
             </a>
             <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
         </div>
     </div>
+
     <div class="main">
-        <!-- <div class="label">
-            <h2>แบบฝึกหัดทั้งหมด</h2>
-            <i class="fa-solid fa-square-plus" onclick="sho()"></i>
+        <div class="at-page-head">
+            <h2>ผู้ป่วยที่รับการบำบัด</h2>
+            <a href="/slp/addnewpatient" class="at-btn-primary">
+                <i class="fa-solid fa-user-plus"></i>
+                เพิ่มผู้ป่วยใหม่
+            </a>
         </div>
-        <div class="lesson">
-            {% for lesson in lessons %}
-                <a href="{{ lesson.url or '#' }}">
-                    <div class="lesson-box">
-                        <h4>{{ lesson.activityname }}</h4>
-                        <p>ผู้รับการบำบัด x คน</p>
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="popup" id="popup">
-        <div id="toppop">
-            <i class="fa-solid fa-xmark" onclick="bac()"></i>
-            <h2>สร้างแบบฝึกหัดใหม่</h2>
-            <p>ตั้งชื่อแบบฝึกหัด</p>
-            <input type="text" name="lesname" id="lesname">
-            <p>เลือกประเภทแบบฝึกหัด</p>
-            <select name="lescat" id="lescat">
-                <option value="" selected>ประเภทแบบฝึกหัด</option>
-            </select>
-            <button type="button" class="btnsolid" id="next">ถัดไป</button>
-        </div>
-        <div id="botpop">
-            <h2>เชิญผู้ป่วยของคุณผ่านลิงก์</h2>
-            <div class="link">
-                <p>www.theratalk.com/lesson/code</p>
-                <button type="button" id="copy">คัดลอก</button>
-            </div>
-            <div class="forbut">
-                <button type="button" class="btntrans" id="back">ย้อนกลับ</button>
-                <button type="button" class="btnsolid" id="finish">เสร็จสิ้น</button>
-            </div>
-        </div>
-    </div>
-    <div id="overlay" onclick="bac()"></div> -->
-        <h2>ผู้รับการบำบัด {{ data|length }} คน</h2>
         <table>
             <thead>
                 <tr>
@@ -85,7 +53,7 @@
                 {% if data %}
                     {% for patient in data %}
                     <tr>
-                        <td>{{ patient.pfirstname }} {{ patient.plastname }}</td>
+                        <td class="patient-name">{{ patient.pfirstname }} {{ patient.plastname }}</td>
                         <td><a href="/slp/mypatient/{{ patient.patientid }}">มอบหมายแบบฝึกหัด</a></td>
                         <td><a href="/slp/checkmypatient/{{ patient.patientid }}">ตรวจแบบฝึกหัด</a></td>
                         <td><a href="/slp/resetpassword/{{ patient.patientid }}">ตั้งรหัสผ่านใหม่</a></td>
@@ -96,15 +64,18 @@
                         <td>ไม่มีผู้รับการบำบัด</td>
                         <td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                 {% endif %}
 
             </tbody>
         </table>
-        <br>
-        <a href="/slp/addnewpatient/">เพิ่มผู้ป่วยใหม่</a>
+    </div>
+
+    <div class="at-bottom-nav">
+        <a href="/slp/" class="at-active"><i class="fa-solid fa-house"></i>หน้าหลัก</a>
+        <a href="/slp/profile"><i class="fa-solid fa-user"></i>โปรไฟล์</a>
     </div>
 </body>
-<script src="/static/js/home_p.js"></script>
 
 </html>

@@ -7,6 +7,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/theme.css">
     <link rel="stylesheet" href="/static/css/home_patient.css">
     <link rel="stylesheet" href="/static/css/responsive.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -16,19 +17,19 @@
 <body>
     <div class="nav">
         <div class="logo">
-            <h4>TheraTalk</h4>
+            <h4>AuraTalk</h4>
         </div>
         <div class="mid">
-            <a href="/patient/" id="home">หน้าหลัก</a>
+            <a href="/patient/" id="home" class="at-active">หน้าหลัก</a>
             <a href="/patient/mission/" id="mission">ภารกิจ</a>
             <a href="/patient/timer/" id="timer">ฝึกหายใจ</a>
         </div>
         <div class="las">
             <a href="/patient/profile">
                 {% if assignments %}
-                <!-- <h4>{{ assignments[0].firstname }} {{ assignments[0].lastname }}</h4>
-                        <p>{{ assignments[0].pusername }}</p> -->
-                <i class="fa-solid fa-user"></i>
+                <div class="at-avatar at-avatar-sm">
+                    <i class="fa-solid fa-user"></i>
+                </div>
                 {% else %}
                 <h4>ไม่พบข้อมูลผู้ใช้</h4>
                 <p>กรุณาเข้าสู่ระบบใหม่</p>
@@ -41,34 +42,38 @@
     </div>
 
     <div class="main">
-        {% for assignment in assignments %}
-        <a href="/patient/lesson/{{ assignment.assignmentid }}">
-            <div class="node active" id="n{{ loop.index }}">
-                <img src="/static/img/audio-book_10089822.png" alt="">
-                <div class="description">
-                    <h3>{{ assignment.assignmentdate or 'แบบฝึกหัด' }}</h3>
-                    <p>{{ assignment.aStartDate or '' }}</p>
-                    <div class="tooltip">
-                        <ol>
+        <div class="at-roadmap">
+            {% for assignment in assignments %}
+            <a href="/patient/lesson/{{ assignment.assignmentid }}">
+                <div class="at-roadmap-row">
+                    <div class="at-roadmap-track">
+                        <div class="at-roadmap-node at-active" id="n{{ loop.index }}">
+                            <i class="fa-solid fa-headphones-simple"></i>
+                        </div>
+                    </div>
+                    <div class="at-roadmap-label">
+                        <h3>{{ assignment.assignmentdate or 'แบบฝึกหัด' }}</h3>
+                        <p>
+                            {% set names = [] %}
                             {% for i in assignments_description %}
-                            {% if i.assignmentid == assignment.assignmentid %}
-                            <li>{{ i.templatename or '-' }}</li>
-                            <!-- เพิ่ม field อื่น ๆ ตาม assignment ที่ต้องการ -->
-                            {% endif %}
+                                {% if i.assignmentid == assignment.assignmentid %}
+                                    {% set _ = names.append(i.templatename or '-') %}
+                                {% endif %}
                             {% endfor %}
-                        </ol>
+                            {{ names | join(', ') if names else (assignment.aStartDate or '') }}
+                        </p>
                     </div>
                 </div>
-            </div>
-        </a>
-        {% endfor %}
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
-    <!-- <p>{{assignments_description}}</p> -->
-
-
-
-
+    <div class="at-bottom-nav">
+        <a href="/patient/mission/"><i class="fa-solid fa-rocket"></i>ภารกิจ</a>
+        <a href="/patient/" class="at-active"><i class="fa-solid fa-house"></i>หน้าหลัก</a>
+        <a href="/patient/profile"><i class="fa-solid fa-user"></i>โปรไฟล์</a>
+    </div>
 </body>
 
 </html>

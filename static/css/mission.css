@@ -2,13 +2,13 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #7293df;
+  color: var(--text);
   font-weight: 550;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  /* background: linear-gradient(135deg, #f7f9fe 0%, #e8f2ff 100%); */
+  /* background: linear-gradient(135deg, var(--primary-tint) 0%, #e8f2ff 100%); */
 }
 .main {
   padding-left: 50px;
@@ -20,20 +20,20 @@ body {
 }
 .mission-box {
   width: 70%;
-  background-color: white;
-  border: 1.5px solid #ececec;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
   border-radius: 15px;
   padding: 10px;
 }
 .mission-box p{
-  color: #666666;
+  color: var(--text);
 }
 .box {
   display: flex;
   flex-direction: column;
   padding: 15px;
   gap: 10px;
-  border-bottom: 1.5px solid #ececec;
+  border-bottom: 1.5px solid var(--border);
 }
 .box:last-child {
   border-bottom: none;
@@ -46,13 +46,13 @@ body {
 .progress-bar {
   width: 100%;
   height: 12px;
-  background-color: #ececec;
+  background-color: var(--border);
   border-radius: 10px;
 }
 
 .progress-fill {
   height: 100%;
-  background-color: #7293df;
+  background-color: var(--primary);
   border-radius: 10px;
   transition: width 0.3s ease-in-out;
   width: 0%;
@@ -61,12 +61,12 @@ body {
 
 .nav {
   width: 100%;
-  height: 50px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 1px 5px #0000001a;
-  background-color: white;
+  box-shadow: 0 1px 0 var(--border);
+  background-color: var(--surface);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -81,7 +81,7 @@ body {
 
 .mid a,
 .txt p {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .mid a {
@@ -90,10 +90,10 @@ body {
 }
 
 .mid a:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 #mission{
-  color: #7293df;
+  color: var(--primary);
 }
 
 .las {
@@ -116,14 +116,7 @@ h4 {
   margin: 0;
 } */
 
-/* .las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
-.las a {
+/* .las a {
   width: 100%;
   height: 100%;
   display: flex;
@@ -136,6 +129,14 @@ h4 {
 .logo {
   padding-left: 12px;
   width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.logo h4 {
+  color: var(--ink);
+  font-size: 20px;
+  letter-spacing: -0.3px;
 }
 
 .txt p {
@@ -145,11 +146,11 @@ h4 {
 
 i {
   transition: ease-in-out 0.2s;
-  color: #bec9d5;
+  color: var(--muted);
   cursor: pointer;
 }
 i:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 
 h2{

@@ -2,7 +2,7 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #7293df;
+  color: var(--text);
   font-weight: 550;
 }
 *,
@@ -13,21 +13,24 @@
 body {
   margin: 0;
   overflow-x: hidden;
-  /* background: linear-gradient(135deg, #f7f9fe 0%, #e8f2ff 100%); */
+  /* background: linear-gradient(135deg, var(--primary-tint) 0%, #e8f2ff 100%); */
 }
 .main {
   padding-left: 15px;
   padding-right: 15px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
-  margin-top: 70px;
+  margin-top: 90px;
   margin-bottom: 50px;
 }
 .pro {
   display: flex;
   align-items: center;
   gap: 20px;
-  border-bottom: 1.5px solid #ececec;
+  border-bottom: 1.5px solid var(--border);
   padding-bottom: 20px;
 }
 .pro h3,
@@ -40,12 +43,12 @@ p {
 }
 .stat p,
 .achi p {
-  color: #bec9d5;
+  color: var(--muted);
   font-size: 13px;
   /* font-weight: 400; */
 }
 .stat {
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   border-radius: 15px;
   padding: 10px;
   display: flex;
@@ -58,7 +61,7 @@ h3 {
   margin: 0;
 }
 .achi {
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   border-radius: 15px;
   padding: 5px;
   display: flex;
@@ -73,12 +76,12 @@ h3 {
 }
 .nav {
   width: 100%;
-  height: 50px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 1px 5px #0000001a;
-  background-color: white;
+  box-shadow: 0 1px 0 var(--border);
+  background-color: var(--surface);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -93,7 +96,7 @@ h3 {
 
 .mid a,
 .txt p {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .mid a {
@@ -102,7 +105,7 @@ h3 {
 }
 
 .mid a:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 
 .las {
@@ -125,13 +128,6 @@ h4 {
   margin: 0;
 }
 
-.las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
 .las a {
   width: 100%;
   height: 100%;
@@ -145,6 +141,14 @@ h4 {
 .logo {
   padding-left: 12px;
   width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.logo h4 {
+  color: var(--ink);
+  font-size: 20px;
+  letter-spacing: -0.3px;
 }
 
 .txt p {
@@ -152,9 +156,9 @@ h4 {
   font-size: 13px;
 }
 .graph{
-  border: 1.5px solid #ececec;
-  border-radius: 15px;
-  padding: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -167,8 +171,8 @@ h4 {
   gap: 20px;
   margin-top: 10px;
 }
-.graph-box, .achi-box{
-  width: 50%;
+.graph-box{
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -176,35 +180,25 @@ h4 {
 
 #out {
   transition: ease-in-out 0.2s;
-  color: #bec9d5;
+  color: var(--muted);
   cursor: pointer;
 }
 #out:hover {
-  color: #7293df;
-}
-
-.pro img {
-  width: 100px;
-  height: 100px;
-}
-.image{
-  width: 100px;
-  height: 100px;
-  border-radius: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1.5px solid #ececec;
-  background-color: white;
-  overflow: hidden;
+  color: var(--primary);
 }
 
 .namenuser p{
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 h2{
   margin: 0;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.achievement{
+  margin-bottom: 4px;
 }
 
 @media screen and (min-width: 631px) and (max-width: 1024px) {

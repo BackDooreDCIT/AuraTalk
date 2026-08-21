@@ -1,4 +1,4 @@
-/* Global Responsive Styles for TheraTalk */
+/* Global Responsive Styles for AuraTalk */
 
 /* Tablet/iPad (768px - 1024px) */
 @media screen and (min-width: 631px) and (max-width: 1024px) {
@@ -11,7 +11,7 @@
   
   /* Navigation */
   .nav {
-    height: 50px;
+    height: 64px;
   }
   
   .mid {
@@ -89,7 +89,7 @@
   
   /* Navigation */
   .nav {
-    height: 50px;
+    height: 64px;
   }
   
   .mid {
@@ -187,7 +187,7 @@
   
   /* Navigation */
   .nav {
-    height: 50px;
+    height: 64px;
   }
   
   .mid {
@@ -207,7 +207,7 @@
   tr {
     display: flex;
     flex-direction: column;
-    border-bottom: 1.5px solid #ececec;
+    border-bottom: 1.5px solid var(--border);
     padding: 5px 0;
   }
   

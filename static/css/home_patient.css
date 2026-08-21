@@ -2,7 +2,7 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #7293df;
+  color: var(--text);
   font-weight: 550;
 }
 body {
@@ -11,12 +11,12 @@ body {
 }
 .nav {
   width: 100%;
-  height: 50px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 1px 5px #0000001a;
-  background-color: white;
+  box-shadow: 0 1px 0 var(--border);
+  background-color: var(--surface);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -31,7 +31,7 @@ body {
 
 .mid a,
 .txt p {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .mid a {
@@ -40,10 +40,10 @@ body {
 }
 
 .mid a:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 #home{
-  color: #7293df;
+  color: var(--primary);
 }
 
 .las {
@@ -66,13 +66,6 @@ h4 {
   margin: 0;
 }
 
-.las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
 .las a {
   width: 100%;
   height: 100%;
@@ -86,6 +79,14 @@ h4 {
 .logo {
   padding-left: 12px;
   width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+.logo h4 {
+  color: var(--ink);
+  font-size: 20px;
+  letter-spacing: -0.3px;
 }
 
 .txt p {
@@ -107,8 +108,8 @@ h4 {
   width: 200px;
   border-radius: 15px;
   padding: 20px;
-  background-color: white;
-  border: 1.5px solid #ececec;
+  background-color: var(--surface);
+  border: 1.5px solid var(--border);
   display: flex;
   gap: 20px;
   align-items: center;
@@ -121,8 +122,8 @@ h4 {
   height: 60px;
 }
 .node:hover{
-  border: 1.5px solid #dae5ff;
-  background-color: #f7f9fe;
+  border: 1.5px solid var(--primary-border);
+  background-color: var(--primary-tint);
 }
 .node.lock{
   filter: grayscale(100%);
@@ -135,11 +136,11 @@ h4 {
   content: url("/static/img/check_1721539.png");
 }
 .node.complete h3{
-  color: #60DAA8;
+  color: var(--success);
 }
 .node.complete:hover{
-  border: 1.5px solid #caefe0;
-  background-color: #f3fdfa;
+  border: 1.5px solid var(--success-border);
+  background-color: var(--success-tint);
 }
 .node:hover .tooltip{
   /* display: block; */
@@ -148,7 +149,7 @@ h4 {
 }
 .description p{
   font-size: 13px;
-  color: #bec9d5;
+  color: var(--muted);
   margin: 0;
 }
 .description h3{
@@ -162,8 +163,8 @@ h4 {
   top: 0;
   left: 250px;
   margin-left: 20px;
-  background: white;
-  border: 1.5px solid #ececec;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
   padding: 15px;
   border-radius: 15px;
   white-space: nowrap;
@@ -171,7 +172,7 @@ h4 {
   transition: ease-in-out 0.2s;
 }
 .tooltip li{
-  color: #666666;
+  color: var(--text);
   font-weight: 400;
 }
 .tooltip ol{
@@ -181,11 +182,11 @@ h4 {
 }
 i {
   transition: ease-in-out 0.2s;
-  color: #bec9d5;
+  color: var(--muted);
   cursor: pointer;
 }
 i:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 
 /* Responsive Styles */

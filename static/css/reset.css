@@ -2,13 +2,13 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #666666;
+  color: var(--text);
   font-weight: 550;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #f7f9fe 0%, #e8f2ff 100%);
+  background: linear-gradient(135deg, var(--primary-tint) 0%, var(--bg) 100%);
 }
 
 .main {
@@ -18,12 +18,12 @@ body {
   border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--surface);
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.03);
   gap: 10px;
 }
@@ -36,23 +36,23 @@ form {
 
 input {
   padding: 5px;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   border-radius: 10px;
   width: 95%;
 }
 /* button {
   height: 40px;
   border-radius: 15px;
-  background-color: white;
-  color: #666666;
-  border: 1.5px solid #ececec;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1.5px solid var(--border);
   transition: ease-in-out 0.2s;
   cursor: pointer;
 }
 button:hover {
-  border: 1.5px solid #dae5ff;
-  background-color: #f7f9fe;
-  color: #7293df;
+  border: 1.5px solid var(--primary-border);
+  background-color: var(--primary-tint);
+  color: var(--primary);
   transition: ease-in-out 0.2s;
 } */
 
@@ -65,7 +65,7 @@ button {
   width: 100%;
   height: 40px;
   border-radius: 15px;
-  background: linear-gradient(135deg, #7293df 0%, #5a7bd8 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   border: none;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -108,17 +108,17 @@ button:active {
 
 
 h4{
-    color: #7293df;
+    color: var(--primary);
 }
 
 .nav {
   width: 100%;
-  height: 50px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 1px 5px #0000001a;
-  background-color: #7293df;
+  box-shadow: 0 1px 0 var(--border);
+  background-color: var(--surface);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -132,23 +132,23 @@ h4{
 }
 
 .mid a {
-  color: #ffffff;
+  color: var(--text);
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
 .mid a:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 #home {
-  color: #ffffff;
+  color: var(--text);
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
 #home:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .las {
@@ -171,34 +171,32 @@ h4 {
   margin: 0;
 }
 
-.las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
 .logo {
   padding-left: 12px;
   width: 20%;
+  display: flex;
+  align-items: center;
 }
 
 .logo h4 {
-  color: #ffffff;
+  color: var(--ink);
+  font-size: 20px;
+  letter-spacing: -0.3px;
 }
+
 
 .txt p {
   font-weight: 400;
   font-size: 13px;
-  color: #ffffff;
+  color: var(--muted);
 }
 .las i {
   transition: ease-in-out 0.2s;
-  color: #ffffff;
+  color: var(--muted);
   cursor: pointer;
 }
 .las i:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .top {
@@ -223,7 +221,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   padding: 10px;
   border-radius: 15px;
 } */
@@ -252,15 +250,15 @@ h2 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   transition: ease-in-out 0.2s;
-  color: #666666;
+  color: var(--text);
   padding: 10px;
 }
 .lesson div:hover {
-  border: 1.5px solid #dae5ff;
-  background-color: #f7f9fe;
-  color: #7293df;
+  border: 1.5px solid var(--primary-border);
+  background-color: var(--primary-tint);
+  color: var(--primary);
 }
 .need a {
   width: 200px;
@@ -268,7 +266,7 @@ h2 {
 }
 
 h2{
-    color: #7293df;
+    color: var(--primary);
 }
 
 /* Responsive Styles */

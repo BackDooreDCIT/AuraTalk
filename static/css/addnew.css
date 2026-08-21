@@ -2,13 +2,13 @@
   font-family: "Prompt";
   text-decoration: none;
   scroll-behavior: smooth;
-  color: #7293df;
+  color: var(--primary);
   font-weight: 550;
 }
 body {
   margin: 0;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #f7f9fe 0%, #e8f2ff 100%);
+  background: linear-gradient(135deg, var(--primary-tint) 0%, var(--bg) 100%);
 }
 
 .main {
@@ -19,12 +19,12 @@ body {
   border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
-  border: 1.5px solid #ececec;
+  border: 1.5px solid var(--border);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--surface);
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.03);
 }
 
@@ -35,29 +35,29 @@ form {
 }
 
 label{
-    color: #666666;
+    color: var(--text);
 }
 
 input {
   padding: 5px;
-  border: 1.5px solid #ececec;
-    color: #666666;
+  border: 1.5px solid var(--border);
+    color: var(--text);
   border-radius: 10px;
 }
 button {
   /* width: 150px; */
   height: 40px;
   border-radius: 15px;
-  background-color: white;
-  /* color: #666666; */
-  border: 1.5px solid #ececec;
+  background-color: var(--surface);
+  /* color: var(--text); */
+  border: 1.5px solid var(--border);
   transition: ease-in-out 0.2s;
   cursor: pointer;
 }
 button:hover {
-  border: 1.5px solid #dae5ff;
-  background-color: #f7f9fe;
-  color: #7293df;
+  border: 1.5px solid var(--primary-border);
+  background-color: var(--primary-tint);
+  color: var(--primary);
   transition: ease-in-out 0.2s;
 }
 
@@ -68,7 +68,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   box-shadow: 1px 1px 5px #0000001a;
-  background-color: #7293df;
+  background-color: var(--primary);
   position: fixed;
   top: 0;
   z-index: 100;
@@ -86,7 +86,7 @@ button:hover {
 }
 
 .txt p {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .mid a {
@@ -95,14 +95,14 @@ button:hover {
 }
 
 .mid a:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 #home {
   color: #ffffff;
 }
 #home:hover {
-  color: #bec9d5;
+  color: var(--muted);
 }
 
 .logo {
@@ -134,24 +134,17 @@ h4 {
   margin: 0;
 }
 
-.las div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-}
-
 .txt p {
   font-weight: 400;
   font-size: 13px;
 }
 i {
   transition: ease-in-out 0.2s;
-  color: #bec9d5;
+  color: var(--muted);
   cursor: pointer;
 }
 i:hover {
-  color: #7293df;
+  color: var(--primary);
 }
 .top {
   width: 100%;
