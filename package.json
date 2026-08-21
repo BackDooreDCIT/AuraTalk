@@ -1,5 +1,5 @@
 {
-  "name": "theratalk",
+  "name": "auratalk",
   "version": "1.0.0",
   "description": "A web application designed for Aphasia to help them practice speaking anytime, anywhere. \r <!-- This project reached the semifinal round in the Healthcare track of the 27th National Software Contest (NSC) in 2025. -->",
   "main": "index.js",
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuannim/theratalk.git"
+    "url": "git+https://github.com/BackDooreDCIT/AuraTalk.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/nuannim/theratalk/issues"
+    "url": "https://github.com/BackDooreDCIT/AuraTalk/issues"
   },
-  "homepage": "https://github.com/nuannim/theratalk#readme",
+  "homepage": "https://github.com/BackDooreDCIT/AuraTalk#readme",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "ejs": "^6.0.1",

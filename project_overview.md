@@ -1,6 +1,6 @@
-# TheraTalk — Project Overview & Setup Guide
+# AuraTalk — Project Overview & Setup Guide
 
-## What is TheraTalk?
+## What is AuraTalk?
 A **Python/FastAPI web application** designed to help **Aphasia patients** practice speaking exercises. It has two user roles:
 - **SLP (Speech-Language Pathologist)** — manages patients, assigns lessons, checks progress
 - **Patient** — completes speaking exercises with AI-powered speech recognition
@@ -27,7 +27,7 @@ A **Python/FastAPI web application** designed to help **Aphasia patients** pract
 ## Project Structure
 
 ```
-theratalk/
+auratalk/
 ├── main.py                    # FastAPI app entry point (login, signup, TTS API, logout)
 ├── requirements.txt           # Python dependencies
 ├── installation.md            # Original setup notes (Thai/English)
@@ -88,7 +88,7 @@ choco install ffmpeg -y
 ```
 
 > [!IMPORTANT]
-> If you don't have Chocolatey, install it first — see [installation.md](file:///c:/Users/Acer/Desktop/theratalk/installation.md) for the PowerShell command, or download FFmpeg manually from https://ffmpeg.org/download.html.
+> If you don't have Chocolatey, install it first — see [installation.md](file:///c:/Users/Acer/Desktop/auratalk/installation.md) for the PowerShell command, or download FFmpeg manually from https://ffmpeg.org/download.html.
 
 ### Step 2 — Install PyTorch with CUDA (for GPU-accelerated AI)
 
@@ -131,7 +131,7 @@ API_VAJA=<your-vaja-tts-api-key>
 | `API_VAJA` | VAJA TTS API key from [aiforthai.in.th](https://aiforthai.in.th) |
 
 > [!CAUTION]
-> **Without the `.env` file, the app will crash immediately** on startup because [db.py](file:///c:/Users/Acer/Desktop/theratalk/app/db/db.py) calls `create_client()` with `None` values.
+> **Without the `.env` file, the app will crash immediately** on startup because [db.py](file:///c:/Users/Acer/Desktop/auratalk/app/db/db.py) calls `create_client()` with `None` values.
 
 ### Step 5 — Run the app
 

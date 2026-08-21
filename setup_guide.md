@@ -1,4 +1,4 @@
-# TheraTalk - Complete Setup Guide
+# AuraTalk - Complete Setup Guide
 
 This document records the complete environment setup that was performed for this project. Use this guide if you ever need to set up the project on a new machine.
 
