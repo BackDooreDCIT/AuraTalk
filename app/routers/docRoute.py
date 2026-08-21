@@ -31,16 +31,6 @@ def check_slp_role(request: Request):
     if role != "slp":
         return RedirectResponse(url="/login", status_code=302)
 
-LESSON_TYPES = [
-    {"name": "การฟังและออกเสียงพยัญชนะและสระ", "icon": "fa-font"},
-    {"name": "การฟังและออกเสียงทีละคำ", "icon": "fa-headphones-simple"},
-    {"name": "การฟังและพูดคำที่เสียงคล้ายกัน", "icon": "fa-code-compare"},
-    {"name": "การฟังเรื่องสั้นเพื่อตอบคำถาม", "icon": "fa-book-open"},
-    {"name": "การนึกคำจากภาพหรือสถานการณ์", "icon": "fa-image"},
-    {"name": "การฟังเพื่อพูดตามเป็นประโยค", "icon": "fa-quote-right"},
-    {"name": "การเรียงคำให้เป็นประโยค", "icon": "fa-arrow-down-short-wide"},
-]
-
 # @router.get("/", response_class=HTMLResponse)
 # async def showHome(request: Request):
 #     response = supabase.table("activities").select("*").execute()
@@ -86,8 +76,7 @@ async def showHome(request: Request, resp=Depends(check_slp_role)):
     return templates.TemplateResponse(request=request, name="home_p.html", context={
         "request": request,
         # "lessons": lessons,
-        "data": new_slp_home.data,
-        "lesson_types": LESSON_TYPES
+        "data": new_slp_home.data
     })
 
 
