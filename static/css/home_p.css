@@ -35,35 +35,6 @@ body {
   display: flex;
   align-self: center;
 } */
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: 1em;
-  overflow: hidden;
-  /* width: 100%; */
-  border: 1.5px solid var(--border);
-}
-th {
-  padding: 8px 10px;
-  text-align: start;
-  color: var(--text);
-}
-td {
-  font-size: 15px;
-  padding: 5px;
-  border-top: 1.5px solid var(--border);
-  font-weight: 400;
-  height: 40px;
-  color: var(--text);
-}
-td.patient-name {
-  font-weight: 600;
-  color: var(--ink);
-}
-thead {
-  background-color: var(--bg);
-  height: 44px;
-}
 .las {
   display: flex;
   align-items: center;
@@ -74,24 +45,6 @@ thead {
   cursor: pointer;
 }
 .las i:hover {
-  color: var(--primary);
-}
-table a {
-  display: flex;
-  text-decoration: none;
-  font-weight: 400;
-  transition: ease-in-out 0.2s;
-  /* width: 100%; */
-  background-color: var(--surface);
-  border: 1.5px solid var(--border);
-  padding: 5px;
-  border-radius: 10px;
-  color: var(--text);
-  text-align: center;
-}
-table a:hover {
-  border: 1.5px solid var(--primary-border);
-  background-color: var(--primary-tint);
   color: var(--primary);
 }
 
@@ -358,11 +311,6 @@ h4 {
   font-weight: 400;
   font-size: 13px;
 }
-#name {
-  width: 65%;
-}
-
-
 /* Tablet/iPad Media Query */
 @media screen and (min-width: 631px) and (max-width: 1024px) {
   .main {
@@ -370,22 +318,14 @@ h4 {
     padding-right: 30px;
     /* margin-top: 70px; */
   }
-  
+
   .mid {
     width: 70%;
     gap: 15px;
   }
-  
+
   .las, .logo {
     width: 15%;
-  }
-  
-  table {
-    width: 100%;
-  }
-  
-  td {
-    font-size: 14px;
   }
 }
 
@@ -429,61 +369,6 @@ h4 {
   a, h4 {
     font-size: 13px;
   }
-
-  /* Patient list -> stacked cards */
-  table {
-    display: block;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    overflow: visible;
-  }
-
-  thead {
-    display: none;
-  }
-
-  tbody {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  tr {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: var(--surface);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 14px 20px;
-    box-shadow: var(--shadow-sm);
-  }
-
-  td {
-    display: block;
-    width: 100%;
-    border-top: none;
-    padding: 0;
-    height: auto;
-    font-size: 14px;
-  }
-
-  td:empty {
-    display: none;
-  }
-
-  td.patient-name {
-    font-size: 15px;
-  }
-
-  table a {
-    width: 100%;
-    height: 38px;
-    font-size: 13px;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 /* Small Mobile Devices */
@@ -503,9 +388,5 @@ h4 {
 
   h2 {
     font-size: 18px;
-  }
-
-  tr {
-    padding: 12px 16px;
   }
 }

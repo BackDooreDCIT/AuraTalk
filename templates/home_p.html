@@ -34,42 +34,23 @@
 
     <div class="main">
         <div class="at-page-head">
-            <h2>ผู้ป่วยที่รับการบำบัด</h2>
+            <h2>แบบฝึกหัดทั้งหมด</h2>
             <a href="/slp/addnewpatient" class="at-btn-primary">
                 <i class="fa-solid fa-user-plus"></i>
                 เพิ่มผู้ป่วยใหม่
             </a>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th id="name">ชื่อ</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if data %}
-                    {% for patient in data %}
-                    <tr>
-                        <td class="patient-name">{{ patient.pfirstname }} {{ patient.plastname }}</td>
-                        <td><a href="/slp/mypatient/{{ patient.patientid }}">มอบหมายแบบฝึกหัด</a></td>
-                        <td><a href="/slp/checkmypatient/{{ patient.patientid }}">ตรวจแบบฝึกหัด</a></td>
-                        <td><a href="/slp/resetpassword/{{ patient.patientid }}">ตั้งรหัสผ่านใหม่</a></td>
-                    </tr>
-                    {% endfor %}
-                {% else %}
-                    <tr>
-                        <td>ไม่มีผู้รับการบำบัด</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                {% endif %}
-
-            </tbody>
-        </table>
+        <div class="at-lesson-grid">
+            {% for lesson in lesson_types %}
+            <a href="/slp/profile">
+                <div class="at-lesson-card">
+                    <div class="at-lesson-icon"><i class="fa-solid {{ lesson.icon }}"></i></div>
+                    <h4>{{ lesson.name }}</h4>
+                    <p>เลือกผู้ป่วยเพื่อมอบหมาย</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 
     <div class="at-bottom-nav">

@@ -44,8 +44,43 @@
                 <p>{{slp_data.slpusername }}</p>
             </div>
         </div>
-        <h2>ผู้ป่วยที่รับการบำบัดทั้งหมด</h2>
-        <p class="patient-count">{{ data|length if data else 0 }} คน</p>
+        <div class="at-page-head">
+            <h2>ผู้ป่วยที่รับการบำบัด</h2>
+            <a href="/slp/addnewpatient" class="at-btn-primary">
+                <i class="fa-solid fa-user-plus"></i>
+                เพิ่มผู้ป่วยใหม่
+            </a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th id="name">ชื่อ</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data %}
+                    {% for patient in data %}
+                    <tr>
+                        <td class="patient-name">{{ patient.pfirstname }} {{ patient.plastname }}</td>
+                        <td><a href="/slp/mypatient/{{ patient.patientid }}">มอบหมายแบบฝึกหัด</a></td>
+                        <td><a href="/slp/checkmypatient/{{ patient.patientid }}">ตรวจแบบฝึกหัด</a></td>
+                        <td><a href="/slp/resetpassword/{{ patient.patientid }}">ตั้งรหัสผ่านใหม่</a></td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>ไม่มีผู้รับการบำบัด</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                {% endif %}
+
+            </tbody>
+        </table>
     </div>
 
     <div class="at-bottom-nav">
